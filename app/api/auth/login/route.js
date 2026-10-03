@@ -76,7 +76,7 @@ export async function POST(request) {
   } catch (error) {
     console.error('Login error:', error);
     return Response.json(
-      { success: false, message: 'Terjadi kesalahan server saat login: ' + error.message },
+      { success: false, message: 'Terjadi kesalahan server saat login. Periksa konfigurasi database.' },
       { status: 500 }
     );
   }

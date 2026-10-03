@@ -31,6 +31,12 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 ## Deploy on Vercel
 
+### Database configuration
+
+The `.env` file is local-only and is not deployed to Vercel. In the Vercel project, open **Settings → Environment Variables** and add `DATABASE_URL` with the MySQL connection URL for the database. Select the environments where it should be available (Production and, if needed, Preview), save it, then redeploy the project. Keep the connection URL private and do not commit it to Git.
+
+Production deployments require `DATABASE_URL`; the local `127.0.0.1` fallback is only used for development.
+
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
