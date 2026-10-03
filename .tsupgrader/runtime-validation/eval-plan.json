@@ -1,0 +1,36 @@
+{
+  "generatedAt": "2026-09-30T09:18:09Z",
+  "generatedOnPlatform": "win32",
+  "projectType": "webapp",
+  "setup": [],
+  "assertions": [
+    {
+      "name": "next-production-build",
+      "kind": "process",
+      "command": "npm",
+      "args": ["run", "build"],
+      "verificationMethod": "exit-code",
+      "expected": "0",
+      "timeoutSeconds": 600
+    },
+    {
+      "name": "login-route-serves",
+      "kind": "http-probe",
+      "startCommand": "npm",
+      "startArgs": ["run", "start", "--", "--hostname", "127.0.0.1", "--port", "3100"],
+      "url": "http://127.0.0.1:3100/login",
+      "verificationMethod": "http-status",
+      "expected": "200",
+      "timeoutSeconds": 120
+    },
+    {
+      "name": "tests-pass",
+      "kind": "process",
+      "command": "npm",
+      "args": ["test"],
+      "verificationMethod": "test-results",
+      "expected": "0",
+      "timeoutSeconds": 300
+    }
+  ]
+}
